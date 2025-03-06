@@ -1,13 +1,16 @@
-const mongoose = require ('mongoose');
-mongoose.connect("mongodb+srv://kirags123:8qPEa8KTKBEh2bss@cluster0.f3qlbuo.mongodb.net/todos")
-const todoSchema = moongoose.Schema({
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb+srv://ishit:123@cluster0.oibm8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');")
+  .then(() => console.log("Connected to MongoDB"))
+  .catch(err => console.error("MongoDB Connection Error:", err));
+
+const todoSchema = new mongoose.Schema({
     title: String,
     description: String,
-    completed: boolean
-})
+    completed: Boolean
+});
 
-const todo= mongoose.model("todos",todoSchema);
+// Create Mongoose Model
+const todo = mongoose.model("todos", todoSchema);
 
-module.exports={
-    todo
-}
+module.exports = { todo };
